@@ -5,7 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "node ./dist/index.js",
-    "build": "tsc npm-node-start",
+    "build": "tsc && node ./dist/index.js",
     "dev": "nodemon ./index.ts"
   },
   "author": "",
