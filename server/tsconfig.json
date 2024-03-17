@@ -5,6 +5,15 @@
     "module": "commonjs",
     "esModuleInterop": true
   },
-  "include": ["./src/**/*"],
+  "include": [
+    "**/*.ts",
+    "graphql/**/*.ts",
+    "graphql/resolver/**/*.ts",
+    "graphql/schema/**/*.ts",
+    "utils/**/*.ts",
+    "db/**/*.ts",
+    "services/**/*.ts",
+    "types/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }
