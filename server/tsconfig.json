@@ -1,9 +1,21 @@
 {
   "compilerOptions": {
-    "target": "ES5",
-    "skipLibCheck": true,
+    "target": "es6",
     "module": "commonjs",
-    "esModuleInterop": true
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
+  "include": [
+    "**/*.ts",
+    "graphql/**/*.ts",
+    "graphql/resolver/**/*.ts",
+    "graphql/schema/**/*.ts",
+    "utils/**/*.ts",
+    "types/**/*.ts",
+    "services/**/*.ts",
+    "db/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }
