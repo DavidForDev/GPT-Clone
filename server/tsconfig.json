@@ -3,9 +3,7 @@
     "target": "ES5",
     "skipLibCheck": true,
     "module": "commonjs",
-    "esModuleInterop": true,
-    "outDir": "/"
+    "esModuleInterop": true
   },
-  "include": ["**/*"],
   "exclude": ["node_modules"]
 }
