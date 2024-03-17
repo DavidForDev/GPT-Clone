@@ -42,9 +42,9 @@ export default async function main() {
   );
 
   await new Promise<void>((resolve) => {
-    httpServer.listen(5000, resolve);
+    httpServer.listen(4500, resolve);
   });
-  console.log(`🚀 Server ready at http://localhost:5000/`);
+  console.log(`🚀 Server ready at http://localhost:4500/`);
 }
 
 main().catch((err) => console.log(err));
