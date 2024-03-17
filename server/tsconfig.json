@@ -3,7 +3,6 @@
     "target": "ES5",
     "skipLibCheck": true,
     "module": "commonjs",
-    "outDir": "./dist",
     "esModuleInterop": true
   },
   "include": ["./src/**/*"],
