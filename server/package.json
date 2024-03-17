@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "start": "node ./index.ts",
     "dev": "nodemon ./index.ts"
   },
   "author": "",
