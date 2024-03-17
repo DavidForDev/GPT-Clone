@@ -4,8 +4,8 @@
     "skipLibCheck": true,
     "module": "commonjs",
     "esModuleInterop": true,
-    "outDir": "dist"
+    "outDir": "/"
   },
-  "include": ["src/**/*"],
+  "include": ["**/*"],
   "exclude": ["node_modules"]
 }
