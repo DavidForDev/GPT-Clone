@@ -37,6 +37,7 @@
     "@types/cors": "^2.8.17",
     "@types/firebase": "^3.2.1",
     "@types/jsonwebtoken": "^9.0.6",
-    "@types/node": "^20.11.28"
+    "@types/node": "^20.11.28",
+    "typescript": "^5.4.2"
   }
 }
