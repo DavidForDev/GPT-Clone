@@ -1,6 +1,7 @@
 import express from "express";
 import http from "http";
 import cors from "cors";
+import bodyParser from "body-parser";
 import { config } from "dotenv";
 
 import { ApolloServer } from "@apollo/server";
@@ -12,6 +13,8 @@ const app = express();
 
 // ------------- Middleware ---------- \\
 config();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // ------------- Resolver / TypeDefs ---------- \\
 import resolvers from "./graphql/resolvers";
