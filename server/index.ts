@@ -14,7 +14,6 @@ const app = express();
 // ------------- Middleware ---------- \\
 config();
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 // ------------- Resolver / TypeDefs ---------- \\
 import resolvers from "./graphql/resolvers";
@@ -42,7 +41,7 @@ export default async function main() {
   );
 
   await new Promise<void>((resolve) => {
-    httpServer.listen(4500, resolve);
+    httpServer.listen(5000, resolve);
   });
   console.log(`🚀 Server ready at http://localhost:4500/`);
 }
