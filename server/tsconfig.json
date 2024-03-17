@@ -10,12 +10,13 @@
   "include": [
     "**/*.ts",
     "graphql/**/*.ts",
-    "graphql/resolver/**/*.ts",
-    "graphql/schema/**/*.ts",
+    "graphql/resolvers/**/*.ts",
+    "graphql/typeDefs/**/*.ts",
     "utils/**/*.ts",
     "types/**/*.ts",
     "services/**/*.ts",
-    "db/**/*.ts"
+    "db/**/*.ts",
+    "db/doc/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }

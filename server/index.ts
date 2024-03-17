@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 import resolvers from "./graphql/resolvers";
 import typeDefs from "./graphql/typeDefs";
 
-export default async function main() {
+async function main() {
   const schema = makeExecutableSchema({ typeDefs, resolvers });
   const httpServer = http.createServer(app);
 
@@ -41,7 +41,7 @@ export default async function main() {
   );
 
   await new Promise<void>((resolve) => {
-    httpServer.listen(5000, resolve);
+    httpServer.listen({ port: 5000 }, resolve);
   });
   console.log(`🚀 Server ready at http://localhost:5000/`);
 }
