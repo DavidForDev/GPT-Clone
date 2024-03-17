@@ -3,7 +3,8 @@
     "target": "ES5",
     "skipLibCheck": true,
     "module": "commonjs",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
   },
   "include": [
     "**/*.ts",
