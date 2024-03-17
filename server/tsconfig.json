@@ -8,16 +8,6 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "dist"
   },
-  "include": [
-    "**/*.ts",
-    "graphql/**/*.ts",
-    "graphql/resolvers/**/*.ts",
-    "graphql/typeDefs/**/*.ts",
-    "utils/**/*.ts",
-    "types/**/*.ts",
-    "services/**/*.ts",
-    "db/**/*.ts",
-    "db/doc/**/*.ts"
-  ],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }
