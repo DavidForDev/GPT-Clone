@@ -5,6 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "node ./index.js",
+    "dev": "nodemon ./index.ts",
     "build": "tsc"
   },
   "author": "",
