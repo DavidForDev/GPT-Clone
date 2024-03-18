@@ -33,7 +33,7 @@ async function main() {
   app.use(
     "/",
     cors<cors.CorsRequest>({
-      origin: "http://localhost:3000",
+      origin: process.env.CLIENT_SIDE_URL,
       credentials: true,
     }),
     express.json(),
