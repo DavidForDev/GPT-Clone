@@ -30,6 +30,7 @@ async function main() {
       ApolloServerPluginDrainHttpServer({ httpServer }),
       ApolloServerPluginLandingPageLocalDefault(),
     ],
+    introspection: true,
   });
 
   await server.start();
