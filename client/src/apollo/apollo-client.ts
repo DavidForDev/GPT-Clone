@@ -1,14 +1,14 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
 
 const httpLink = createHttpLink({
-  uri: process.env.SERVER_SIDE_URL,
+  uri: "https://gpt-clone-gamma.vercel.app/",
   credentials: "include",
 });
 
 const Apollo = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache(),
-  uri: process.env.SERVER_SIDE_URL,
+  uri: "https://gpt-clone-gamma.vercel.app/",
 });
 
 export default Apollo;
