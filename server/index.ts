@@ -36,10 +36,9 @@ async function main() {
   await server.start();
 
   app.use(
-    "/graphql",
+    "/",
     cors<cors.CorsRequest>({
       origin: process.env.CLIENT_SIDE_URL,
-      credentials: true,
     }),
     express.json(),
     expressMiddleware(server)
