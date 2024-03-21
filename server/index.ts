@@ -17,7 +17,7 @@ config();
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "http://localhost:3000/",
+    origin: "http://localhost:3000",
   })
 );
 
@@ -43,7 +43,7 @@ async function main() {
   app.use(
     "/",
     cors<cors.CorsRequest>({
-      origin: "http://localhost:3000/",
+      origin: "http://localhost:3000",
     }),
     express.json(),
     expressMiddleware(server)
