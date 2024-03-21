@@ -40,14 +40,7 @@ async function main() {
 
   await server.start();
 
-  app.use(
-    "/",
-    cors<cors.CorsRequest>({
-      origin: "http://localhost:3000",
-    }),
-    express.json(),
-    expressMiddleware(server)
-  );
+  app.use("/", express.json(), expressMiddleware(server));
 
   await new Promise<void>((resolve) => {
     httpServer.listen({ port: 5000 }, resolve);
