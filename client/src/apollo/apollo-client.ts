@@ -9,6 +9,7 @@ const Apollo = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache(),
   uri: process.env.NEXT_PUBLIC_SERVER_SIDE_URL,
+  credentials: "include",
 });
 
 export default Apollo;
