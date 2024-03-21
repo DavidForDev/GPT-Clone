@@ -18,6 +18,7 @@ app.use(bodyParser.json());
 app.use(
   cors({
     origin: process.env.CLIENT_SIDE_URL,
+    credentials: true,
   })
 );
 
@@ -44,6 +45,7 @@ async function main() {
     "/",
     cors<cors.CorsRequest>({
       origin: process.env.CLIENT_SIDE_URL,
+      credentials: true,
     }),
     express.json(),
     expressMiddleware(server)
