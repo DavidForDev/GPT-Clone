@@ -15,6 +15,11 @@ const app = express();
 // ------------- Middleware ---------- \\
 config();
 app.use(bodyParser.json());
+app.use(
+  cors({
+    origin: process.env.CLIENT_SIDE_URL,
+  })
+);
 
 // ------------- Resolver / TypeDefs ---------- \\
 import resolvers from "./graphql/resolvers";
