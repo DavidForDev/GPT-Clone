@@ -17,7 +17,7 @@ config();
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: process.env.CLIENT_SIDE_URL,
   })
 );
 
@@ -40,7 +40,14 @@ async function main() {
 
   await server.start();
 
-  app.use("/", express.json(), expressMiddleware(server));
+  app.use(
+    "/",
+    cors<cors.CorsRequest>({
+      origin: process.env.CLIENT_SIDE_URL,
+    }),
+    express.json(),
+    expressMiddleware(server)
+  );
 
   await new Promise<void>((resolve) => {
     httpServer.listen({ port: 5000 }, resolve);
