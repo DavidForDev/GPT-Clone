@@ -1,3 +1,3 @@
-import Admin from "../fireBase";
+import Admin from "../fireBase.admin";
 
 export default Admin.firestore().collection("chats");

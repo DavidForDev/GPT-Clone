@@ -39,16 +39,6 @@ export default {
           };
         }
 
-        // find user
-        const user = await Admin.auth().getUserByEmail(email);
-
-        if (!user) {
-          return {
-            status: false,
-            message: "cant find such user!",
-          };
-        }
-
         // Auth User
         return FireBase.auth()
           .signInWithEmailAndPassword(email, password)
