@@ -63,8 +63,8 @@ export default {
     sendMessage: async (_: any, args: SendMessageTypes) => {
       const { message, chatId, userId } = args.sendMessageInput;
 
-      // const docRef = chats.doc();
-      // const userResponse = messageResponse("user", message);
+      const docRef = chats.doc();
+      const userResponse = messageResponse("user", message);
 
       // const currentUser = Admin.auth().getUser(userId);
 
@@ -111,15 +111,12 @@ export default {
         // const { text: chatResponse } = await useGenerateAI("", message);
         // const newChatResponse = messageResponse("model", chatResponse);
 
-        // // save new Chat
-        // await docRef.set({
-        //   message: fireBase.firestore.FieldValue.arrayUnion(
-        //     userResponse,
-        //     newChatResponse
-        //   ),
-        //   chatName: titleOfChat,
-        //   userId: userId,
-        // });
+        // save new Chat
+        await docRef.set({
+          message: fireBase.firestore.FieldValue.arrayUnion(userResponse),
+          chatName: "test",
+          userId: userId,
+        });
 
         //  data: {
         //     message: newChatResponse,
