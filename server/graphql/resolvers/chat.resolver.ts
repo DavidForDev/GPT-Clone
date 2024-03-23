@@ -66,14 +66,14 @@ export default {
       const docRef = chats.doc();
       const userResponse = messageResponse("user", message);
 
-      // const currentUser = Admin.auth().getUser(userId);
+      const currentUser = Admin.auth().getUser(userId);
 
       try {
-        // if (!userId || !currentUser)
-        //   return {
-        //     status: false,
-        //     message: "you should sign in system to use chat",
-        //   };
+        if (!userId || !currentUser)
+          return {
+            status: false,
+            message: "you should sign in system to use chat",
+          };
 
         // // ------ send new Generated Text if exist chat
         // if (chatId) {
@@ -120,13 +120,6 @@ export default {
           chatName: titleOfChat,
           userId: userId,
         });
-
-        //  data: {
-        //     message: newChatResponse,
-        //     chatId: docRef.id,
-        //     chatName: titleOfChat,
-        //     isNew: true,
-        //   },
 
         return {
           data: {
