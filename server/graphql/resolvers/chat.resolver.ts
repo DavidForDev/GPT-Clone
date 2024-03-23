@@ -101,11 +101,11 @@ export default {
 
         // // ------ create new Chat and send new Generated Text
 
-        // // title of Chat
-        // const { text: titleOfChat } = await useGenerateAI(
-        //   "make short (max 3 words) chat title of",
-        //   message
-        // );
+        // title of Chat
+        const { text: titleOfChat } = await useGenerateAI(
+          "make short (max 3 words) chat title of",
+          message
+        );
 
         // generated text by user prompt
         const { text: chatResponse } = await useGenerateAI("", message);
@@ -117,7 +117,7 @@ export default {
             userResponse,
             chatResponse
           ),
-          chatName: "test",
+          chatName: titleOfChat,
           userId: userId,
         });
 
@@ -131,8 +131,8 @@ export default {
         return {
           data: {
             message: newChatResponse,
-            chatId: chatId,
-            chatName: userId,
+            chatId: docRef.id,
+            chatName: titleOfChat,
             isNew: true,
           },
         };
