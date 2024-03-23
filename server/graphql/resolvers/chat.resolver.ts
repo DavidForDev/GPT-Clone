@@ -121,6 +121,8 @@ export default {
           userId: userId,
         });
 
+        console.log(newChatResponse, docRef.id, titleOfChat);
+
         return {
           data: {
             message: newChatResponse,
