@@ -107,16 +107,16 @@ export default {
         //   message
         // );
 
-        // // generated text by user prompt
-        // const { text: chatResponse } = await useGenerateAI("", message);
-        // const newChatResponse = messageResponse("model", chatResponse);
+        // generated text by user prompt
+        const { text: chatResponse } = await useGenerateAI("", message);
+        const newChatResponse = messageResponse("model", chatResponse);
 
-        // save new Chat
-        await docRef.set({
-          message: fireBase.firestore.FieldValue.arrayUnion(userResponse),
-          chatName: "test",
-          userId: userId,
-        });
+        // // save new Chat
+        // await docRef.set({
+        //   message: fireBase.firestore.FieldValue.arrayUnion(userResponse),
+        //   chatName: "test",
+        //   userId: userId,
+        // });
 
         //  data: {
         //     message: newChatResponse,
@@ -127,7 +127,7 @@ export default {
 
         return {
           data: {
-            message: message,
+            message: newChatResponse,
             chatId: chatId,
             chatName: userId,
             isNew: true,
