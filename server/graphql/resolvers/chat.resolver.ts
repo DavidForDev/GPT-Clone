@@ -111,12 +111,15 @@ export default {
         const { text: chatResponse } = await useGenerateAI("", message);
         const newChatResponse = messageResponse("model", chatResponse);
 
-        // // save new Chat
-        // await docRef.set({
-        //   message: fireBase.firestore.FieldValue.arrayUnion(userResponse),
-        //   chatName: "test",
-        //   userId: userId,
-        // });
+        // save new Chat
+        await docRef.set({
+          message: fireBase.firestore.FieldValue.arrayUnion(
+            userResponse,
+            chatResponse
+          ),
+          chatName: "test",
+          userId: userId,
+        });
 
         //  data: {
         //     message: newChatResponse,
