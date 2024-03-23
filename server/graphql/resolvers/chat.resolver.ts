@@ -66,10 +66,8 @@ export default {
       const docRef = chats.doc();
       const userResponse = messageResponse("user", message);
 
-      const currentUser = Admin.auth().getUser(userId);
-
       try {
-        if (!userId || !currentUser)
+        if (!userId)
           return {
             status: false,
             message: "you should sign in system to use chat",
