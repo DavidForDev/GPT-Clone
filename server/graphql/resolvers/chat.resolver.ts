@@ -63,71 +63,76 @@ export default {
     sendMessage: async (_: any, args: SendMessageTypes) => {
       const { message, chatId, userId } = args.sendMessageInput;
 
-      const docRef = chats.doc();
-      const userResponse = messageResponse("user", message);
+      // const docRef = chats.doc();
+      // const userResponse = messageResponse("user", message);
 
-      const currentUser = Admin.auth().getUser(userId);
+      // const currentUser = Admin.auth().getUser(userId);
 
       try {
-        if (!userId || !currentUser)
-          return {
-            status: false,
-            message: "you should sign in system to use chat",
-          };
+        // if (!userId || !currentUser)
+        //   return {
+        //     status: false,
+        //     message: "you should sign in system to use chat",
+        //   };
 
-        // ------ send new Generated Text if exist chat
-        if (chatId) {
-          const existChat = (await chats.doc(chatId).get()).data();
+        // // ------ send new Generated Text if exist chat
+        // if (chatId) {
+        //   const existChat = (await chats.doc(chatId).get()).data();
 
-          if (existChat) {
-            // generate text by AI
-            const { response } = await useChat(existChat.message, message);
-            const modelResponse = messageResponse("model", response);
+        //   if (existChat) {
+        //     // generate text by AI
+        //     const { response } = await useChat(existChat.message, message);
+        //     const modelResponse = messageResponse("model", response);
 
-            // save user / Ai message
-            await chats.doc(chatId).update({
-              message: fireBase.firestore.FieldValue.arrayUnion(
-                userResponse,
-                modelResponse
-              ),
-            });
+        //     // save user / Ai message
+        //     await chats.doc(chatId).update({
+        //       message: fireBase.firestore.FieldValue.arrayUnion(
+        //         userResponse,
+        //         modelResponse
+        //       ),
+        //     });
 
-            return {
-              status: true,
-              data: modelResponse,
-            };
-          }
-        }
+        //     return {
+        //       status: true,
+        //       data: modelResponse,
+        //     };
+        //   }
+        // }
 
-        // ------ create new Chat and send new Generated Text
+        // // ------ create new Chat and send new Generated Text
 
-        // title of Chat
-        const { text: titleOfChat } = await useGenerateAI(
-          "make short (max 3 words) chat title of",
-          message
-        );
+        // // title of Chat
+        // const { text: titleOfChat } = await useGenerateAI(
+        //   "make short (max 3 words) chat title of",
+        //   message
+        // );
 
-        // generated text by user prompt
-        const { text: chatResponse } = await useGenerateAI("", message);
-        const newChatResponse = messageResponse("model", chatResponse);
+        // // generated text by user prompt
+        // const { text: chatResponse } = await useGenerateAI("", message);
+        // const newChatResponse = messageResponse("model", chatResponse);
 
-        // save new Chat
-        await docRef.set({
-          message: fireBase.firestore.FieldValue.arrayUnion(
-            userResponse,
-            newChatResponse
-          ),
-          chatName: titleOfChat,
-          userId: userId,
-        });
+        // // save new Chat
+        // await docRef.set({
+        //   message: fireBase.firestore.FieldValue.arrayUnion(
+        //     userResponse,
+        //     newChatResponse
+        //   ),
+        //   chatName: titleOfChat,
+        //   userId: userId,
+        // });
 
-        console.log(newChatResponse, docRef.id, titleOfChat);
+        //  data: {
+        //     message: newChatResponse,
+        //     chatId: docRef.id,
+        //     chatName: titleOfChat,
+        //     isNew: true,
+        //   },
 
         return {
           data: {
-            message: newChatResponse,
-            chatId: docRef.id,
-            chatName: titleOfChat,
+            message: message,
+            chatId: chatId,
+            chatName: userId,
             isNew: true,
           },
         };
