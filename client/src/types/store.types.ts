@@ -1,7 +1,7 @@
 export interface UseToggleTypes {
   status: boolean;
   toggle: () => void;
-  toggleBySize: (size: number) => void;
+  toggleBySize: (minSize: number, maxSize: number) => void;
 }
 
 export interface UseNewChatTypes {

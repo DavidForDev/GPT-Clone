@@ -17,12 +17,13 @@ const MobileNavigation = ({ burgerClick, ...props }: MobileNavigationTypes) => {
     <nav
       {...props}
       className={`${props.className} p-2 px-5 h-14 flex justify-between items-center border-b border-[#343436] md:border-none w-full bg-transparent`}
+      style={{ zIndex: 0 }}
     >
       <BurgerSvg
         width={25}
         height={25}
         stroke="white"
-        className="md:hidden block cursor-pointer"
+        className="md:hidden block cursor-pointer z-0"
         onClick={toggle}
       />
       <h3 className="capitalize text-lg font-bold">

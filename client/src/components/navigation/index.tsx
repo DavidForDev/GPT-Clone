@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 
 // ------------- Components ------------ \\
-import SecondaryButton from "@/components/UI/buttons/button.secondry";
 import ChatCard from "./_component/chatCard";
 import NewChatButton from "./_component/newChat";
 import ToggleNavigation from "./_component/closer";
+import FooterMenu from "./_component/footer";
 
 // ------------- Icons ------------ \\
 import OpenAiSvg from "../../../public/icons/openai";
@@ -18,16 +18,13 @@ import { useModal, useNewChat } from "@/store/zustand";
 // ------------- Types ------------ \\
 import { NavigatonTypes } from "@/types/components.types";
 
-// ------------- Hooks ----------- \\
-import { useSession } from "@/hooks/useSession";
-
 // ------------- Apollo => Query ------------ \\
 import {
   Query_Request as User_Query_Request,
   Mutation_Request as User_Mutation_Request,
 } from "@/apollo/operations/requests/user.request";
+
 import { Query_Request as Chat_Query_Request } from "@/apollo/operations/requests/chat.request";
-import FooterMenu from "./_component/footer";
 
 const Navigation = ({ onBurger }: NavigatonTypes) => {
   const [chats, setChats] = useState<object[]>([]);
@@ -71,7 +68,7 @@ const Navigation = ({ onBurger }: NavigatonTypes) => {
   ];
 
   return (
-    <div className="w-full h-full flex items-start flex-row-reverse">
+    <div className="w-full h-full flex items-start flex-row-reverse z-50">
       <ToggleNavigation onBurger={onBurger} />
 
       <nav className="h-full w-full flex-[1_1_70%] bg-[#171717] py-3 px-1 text-white flex flex-col z-50 md:relative">

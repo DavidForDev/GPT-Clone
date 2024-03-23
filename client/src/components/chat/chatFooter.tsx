@@ -30,7 +30,7 @@ const ChatFooter = ({
   userId?: string;
   setMessage?: SetStateAction<any>;
 }) => {
-  const [prompt, setPrompt] = useState<any>("");
+  const [prompt, setPrompt] = useState<string>("");
 
   const router = useRouter();
 
@@ -39,13 +39,15 @@ const ChatFooter = ({
 
   // zustand store
   const { setNewChat } = useNewChat();
-  const { setLoading } = useLoading();
+  const { setLoading, loading } = useLoading();
 
   // context
   const { setMessages } = useChatContext();
   const { errors, setErrors } = useErrorContext();
 
   const sendMessageHandle = async () => {
+    if (prompt.trim() === "" || prompt.trim().length === 0) return;
+
     // user
     const userText = {
       parts: prompt,
@@ -103,6 +105,7 @@ const ChatFooter = ({
         placeholder="message chatGPT..."
         value={prompt}
         setValue={setPrompt}
+        disabled={loading}
         sendClick={sendMessageHandle}
       />
       <p className="text-xs text-[#cdcdcd] text-center">{warningInfo}</p>

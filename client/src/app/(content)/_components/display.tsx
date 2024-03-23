@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 // ------------- Components ------------- \\
 import Navigation from "@/components/navigation";
@@ -20,12 +20,14 @@ const DashboardDisplay = ({ children }: DashboardDisplayTypes) => {
   // use for responsive
   const toggleNavigation = status ? "md:!w-[260px]" : "!w-0";
 
-  useEffect(() => {
-    window.addEventListener("resize", (x) => toggleBySize(window.innerWidth));
+  useLayoutEffect(() => {
+    window.addEventListener("resize", (x) =>
+      toggleBySize(window.innerWidth, 840)
+    );
 
     return () =>
       window.removeEventListener("resize", () =>
-        toggleBySize(window.innerWidth)
+        toggleBySize(window.innerWidth, 840)
       );
   }, []);
 
@@ -37,7 +39,7 @@ const DashboardDisplay = ({ children }: DashboardDisplayTypes) => {
         <Navigation onBurger={toggle} />
       </header>
       <main className="flex-1 h-full box-border relative">
-        <MobileNavigation className="absolute top-0 z-0" />
+        <MobileNavigation className="absolute top-0" />
         <ToggleButton
           onClick={toggle}
           status={status}

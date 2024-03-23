@@ -19,8 +19,8 @@ import {
 export const useToggle = create<UseToggleTypes>((set) => ({
   status: true,
   toggle: () => set((state) => ({ status: !state.status })),
-  toggleBySize: (size) =>
-    set((state) => ({ status: size < 840 ? false : true })),
+  toggleBySize: (minSize, maxSize) =>
+    set((state) => ({ status: minSize < maxSize ? false : true })),
 }));
 
 // ---- new Chat
