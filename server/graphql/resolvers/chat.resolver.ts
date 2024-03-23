@@ -73,29 +73,29 @@ export default {
             message: "you should sign in system to use chat",
           };
 
-        // // ------ send new Generated Text if exist chat
-        // if (chatId) {
-        //   const existChat = (await chats.doc(chatId).get()).data();
+        // ------ send new Generated Text if exist chat
+        if (chatId) {
+          const existChat = (await chats.doc(chatId).get()).data();
 
-        //   if (existChat) {
-        //     // generate text by AI
-        //     const { response } = await useChat(existChat.message, message);
-        //     const modelResponse = messageResponse("model", response);
+          if (existChat) {
+            // generate text by AI
+            const { response } = await useChat(existChat.message, message);
+            const modelResponse = messageResponse("model", response);
 
-        //     // save user / Ai message
-        //     await chats.doc(chatId).update({
-        //       message: fireBase.firestore.FieldValue.arrayUnion(
-        //         userResponse,
-        //         modelResponse
-        //       ),
-        //     });
+            // save user / Ai message
+            await chats.doc(chatId).update({
+              message: fireBase.firestore.FieldValue.arrayUnion(
+                userResponse,
+                modelResponse
+              ),
+            });
 
-        //     return {
-        //       status: true,
-        //       data: modelResponse,
-        //     };
-        //   }
-        // }
+            return {
+              status: true,
+              data: modelResponse,
+            };
+          }
+        }
 
         // // ------ create new Chat and send new Generated Text
 
