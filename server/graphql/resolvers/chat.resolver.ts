@@ -113,7 +113,7 @@ export default {
         await docRef.set({
           message: fireBase.firestore.FieldValue.arrayUnion(
             userResponse,
-            chatResponse
+            newChatResponse
           ),
           chatName: titleOfChat,
           userId: userId,
