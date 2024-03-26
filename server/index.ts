@@ -8,7 +8,6 @@ import { ApolloServer } from "@apollo/server";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
 import { makeExecutableSchema } from "@graphql-tools/schema";
 import { expressMiddleware } from "@apollo/server/express4";
-import { ApolloServerPluginLandingPageLocalDefault } from "@apollo/server/plugin/landingPage/default";
 
 const app = express();
 
@@ -32,10 +31,7 @@ async function main() {
 
   const server = new ApolloServer({
     schema: schema,
-    plugins: [
-      ApolloServerPluginDrainHttpServer({ httpServer }),
-      ApolloServerPluginLandingPageLocalDefault(),
-    ],
+    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
     introspection: true,
   });
 
