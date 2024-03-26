@@ -160,7 +160,7 @@ export default {
             status: true,
             message: "removed succesfuly",
           };
-        });
+        })[0];
       } catch (error) {
         throw error;
       }
