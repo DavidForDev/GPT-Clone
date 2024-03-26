@@ -31,7 +31,7 @@ const Navigation = ({ onBurger }: NavigatonTypes) => {
 
   // Apollo
   const { logOut } = User_Query_Request;
-  const { removeAccount } = User_Mutation_Request;
+  const { removeAllChat } = User_Mutation_Request;
   const { getChats } = Chat_Query_Request;
 
   // zustand store
@@ -54,11 +54,16 @@ const Navigation = ({ onBurger }: NavigatonTypes) => {
     }
   }, [isNewChat]);
 
+  const removeAllChatsHandle = () => {
+    removeAllChat();
+    setChats([]);
+  };
+
   const footerDB = [
     {
       name: "remove account",
       icon: <OpenAiSvg width={18} height={18} />,
-      onClick: () => onToggle("rm-account", removeAccount),
+      onClick: () => onToggle("rm-account", removeAllChatsHandle),
     },
     {
       name: "log out",

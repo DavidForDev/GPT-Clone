@@ -138,7 +138,7 @@ export default {
         throw error;
       }
     },
-    removeAccount: async (_: any, args: RemoveAccountTypes) => {
+    removeAllChat: async (_: any, args: RemoveAccountTypes) => {
       const { userId } = args;
 
       try {
@@ -154,8 +154,6 @@ export default {
         chatArray.docs.map(async (doc) => {
           await chats.doc(doc.id).delete();
         });
-
-        await Admin.auth().deleteUser(userId);
 
         return {
           status: true,

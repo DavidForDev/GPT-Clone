@@ -34,6 +34,6 @@ export default gql`
 
   type Mutation {
     createUser(newUserInput: NewUserInput): Response
-    removeAccount(userId: String): Response
+    removeAllChat(userId: String): Response
   }
 `;

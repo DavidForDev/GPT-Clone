@@ -90,11 +90,9 @@ export const Mutation_Request = {
       throw error;
     }
   },
-  removeAccount: async () => {
+  removeAllChat: async () => {
     try {
       const { user } = await useSession();
-
-      console.log(user);
 
       const { data } = await ApolloClient.mutate({
         mutation: removeAccount,
@@ -104,11 +102,6 @@ export const Mutation_Request = {
       });
 
       const response = data.removeAccount;
-
-      if (response.status) {
-        cookies.remove("token");
-        location.reload();
-      }
 
       return {
         data: response.data,

@@ -23,8 +23,8 @@ export const Mutation_Schema = {
     }
   `,
   removeAccount: gql`
-    mutation RemoveAccount($userId: String) {
-      removeAccount(userId: $userId) {
+    mutation RemoveAllChat($userId: String) {
+      removeAllChat(userId: $userId) {
         status
         message
       }
