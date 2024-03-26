@@ -151,7 +151,7 @@ export default {
         // remove Chats
         const chatArray = await chats.where("userId", "==", userId).get();
 
-        const removeEverything = chatArray.docs.map(async (doc) => {
+        return chatArray.docs.map(async (doc) => {
           await chats.doc(doc.id).delete();
 
           await Admin.auth().deleteUser(userId);
@@ -161,8 +161,6 @@ export default {
             message: "removed succesfuly",
           };
         });
-
-        return removeEverything[0];
       } catch (error) {
         throw error;
       }
