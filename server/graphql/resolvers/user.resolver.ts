@@ -152,12 +152,9 @@ export default {
         const chatArray = await chats.where("userId", "==", userId).get();
 
         const removeEverything = chatArray.docs.map(async (doc) => {
-          await chats
-            .doc(doc.id)
-            .delete()
-            .then(async () => {
-              await Admin.auth().deleteUser(userId);
-            });
+          await chats.doc(doc.id).delete();
+
+          await Admin.auth().deleteUser(userId);
 
           return {
             status: true,
