@@ -61,9 +61,9 @@ const Navigation = ({ onBurger }: NavigatonTypes) => {
 
   const footerDB = [
     {
-      name: "remove account",
+      name: "remove all chats",
       icon: <OpenAiSvg width={18} height={18} />,
-      onClick: () => onToggle("rm-account", removeAllChatsHandle),
+      onClick: () => onToggle("rm-chats", removeAllChatsHandle),
     },
     {
       name: "log out",

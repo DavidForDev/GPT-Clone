@@ -29,7 +29,7 @@ export default async function RootLayout({
       context: "This will delete Junior React Developer Application.",
     },
     {
-      id: "rm-account",
+      id: "rm-chats",
       title: "remove account?",
       context: "this will remove your account",
     },
