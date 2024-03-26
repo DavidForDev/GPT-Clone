@@ -94,6 +94,8 @@ export const Mutation_Request = {
     try {
       const { user } = await useSession();
 
+      console.log(user);
+
       const { data } = await ApolloClient.mutate({
         mutation: removeAccount,
         variables: {
