@@ -41,7 +41,6 @@ export const Query_Request = {
         data: response.data,
         error: {
           text: response.message,
-          status: response.status,
         },
       };
     } catch (error) {
