@@ -56,7 +56,6 @@ export default {
               };
 
               return {
-                status: true,
                 data: userInfo,
               };
             });
@@ -121,6 +120,7 @@ export default {
 
               return {
                 status: true,
+                message: "account created succesfuly",
                 data: userInfo,
               };
             });
